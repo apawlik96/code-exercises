@@ -6,12 +6,12 @@ const gardens = [
 
 const largeGardens = gardens.filter(garden => garden.area > 400);
 
-let gardensWithFlowerCount = largeGardens.map(garden => ({
+const gardensWithFlowerCount = largeGardens.map(garden => ({
     location: garden.location,
     area: garden.area,
     flowers: garden.flowers.length,
 }));
 
-let sortedGardensByFlowerCount = gardensWithFlowerCount.sort((a, b) => a.flowers - b.flowers).reverse();
+const sortedGardensByFlowerCount = gardensWithFlowerCount.sort((a, b) => a.flowers - b.flowers).reverse();
 
 console.log(sortedGardensByFlowerCount);

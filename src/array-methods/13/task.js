@@ -4,12 +4,12 @@ const trips = [
     { destination: "Australia", days: 12, rating: 4.9 }
 ];
 
-let tripsWithScores = trips.map(trip => ({
+const tripsWithScores = trips.map(trip => ({
     destination: trip.destination,
     tripScore: Math.round(trip.days * trip.rating),
 }));
-let filteredTrips = tripsWithScores.filter(score => score.tripScore <= 50).sort((a, b) => a.tripScore - b.tripScore).reverse();
-let destinationNames = filteredTrips.map(trip => ({
+const filteredTrips = tripsWithScores.filter(score => score.tripScore <= 50).sort((a, b) => a.tripScore - b.tripScore).reverse();
+const destinationNames = filteredTrips.map(trip => ({
     destination: trip.destination,
 }));
 

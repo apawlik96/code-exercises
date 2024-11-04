@@ -4,8 +4,8 @@ const flowers = [
     { name: "Orchid", color: "purple", price: 25, availability: 10 }
 ];
 
-let expensiveFlowers = flowers.filter(flower => flower.price > 10)
-let sortedByAvailability  = expensiveFlowers.sort((a, b) => a.availability - b.availability).reverse();
-let flowerNamesUppercase = sortedByAvailability.map(flower => flower.name.toUpperCase());
+const expensiveFlowers = flowers.filter(flower => flower.price > 10)
+const sortedByAvailability  = expensiveFlowers.sort((a, b) => a.availability - b.availability).reverse();
+const flowerNamesUppercase = sortedByAvailability.map(flower => flower.name.toUpperCase());
 
 console.log(flowerNamesUppercase);

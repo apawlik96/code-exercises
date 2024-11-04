@@ -10,6 +10,6 @@ const flowerArray = Object.entries(flowerInventory).map(([key, value]) => ({
     quantity: value.quantity
 }));
 const valuableFlowers = flowerArray.filter(value => value.totalValue >= 500)
-let sortedFlowersByValue = valuableFlowers.sort((a, b) => a.totalValue - b.totalValue).reverse();
+const sortedFlowersByValue = valuableFlowers.sort((a, b) => a.totalValue - b.totalValue).reverse();
 
 console.log(sortedFlowersByValue);

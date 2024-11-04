@@ -5,11 +5,11 @@ const vacations = [
 ];
 
 const vacationsAboveZero = vacations.filter(vacation => vacation.temperature < 0)
-let vacationsWithTemperatureToRating  = vacationsAboveZero.map(vacation => ({
+const vacationsWithTemperatureToRating  = vacationsAboveZero.map(vacation => ({
     location: vacation.location,
     temperatureToRatingRatio: Math.round(vacation.temperature * vacation.rating),
 })).sort((a, b) => a.temperatureToRatingRatio - b.temperatureToRatingRatio);
-let locationNames = vacationsWithTemperatureToRating.map(vacation => ({
+const locationNames = vacationsWithTemperatureToRating.map(vacation => ({
     location: vacation.location,
 }))
 

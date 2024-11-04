@@ -6,7 +6,7 @@ const flowers = [
 
 const uniqueColors = [...new Set(flowers.map(flower => flower.color))];
 const filteredFlowers = flowers.filter(flower => uniqueColors.includes(flower.color));
-let result = filteredFlowers.map(flower => ({
+const result = filteredFlowers.map(flower => ({
     name: flower.name,
     season: flower.season
 }));

@@ -11,8 +11,8 @@ const vacationsArray = Object.entries(vacationRatings).map(([key, value]) => ({
     costPerPointOfRating: Math.round(value.cost / value.rating),
 }));
 const filteredVacations = vacationsArray.filter(vacation => vacation.costPerPointOfRating >= 400)
-let sortedVacationsByCostPerPoint = filteredVacations.sort((a, b) => a.rating - b.rating);
-let result = sortedVacationsByCostPerPoint.map(vacation => ({
+const sortedVacationsByCostPerPoint = filteredVacations.sort((a, b) => a.rating - b.rating);
+const result = sortedVacationsByCostPerPoint.map(vacation => ({
     location: vacation.name,
 }));
 

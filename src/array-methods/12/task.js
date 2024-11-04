@@ -9,8 +9,8 @@ const flowersWithScores = Object.entries(flowerRatings).map(([key, value]) => ({
     combinedScore: value.beauty + value.fragrance,
 }));
 const filteredFlowers = flowersWithScores.filter(score => score.combinedScore >= 15);
-let sortedFlowers = filteredFlowers.sort((a, b) => a.combinedScore - b.combinedScore);
-let flowerName = sortedFlowers.map(flower => ({
+const sortedFlowers = filteredFlowers.sort((a, b) => a.combinedScore - b.combinedScore);
+const flowerName = sortedFlowers.map(flower => ({
     name: flower.name,
 }));
 

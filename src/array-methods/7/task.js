@@ -4,11 +4,11 @@ const flowers = [
     { name: "Carnation", price: 5, stock: 70 },
 ];
 
-let revenuePotentialPerFlower = flowers.map(flower => ({
+const revenuePotentialPerFlower = flowers.map(flower => ({
     name: flower.name,
     revenuePotential: flower.price * flower.stock
 }));
 const filteredFlowers = revenuePotentialPerFlower.filter(flower => flower.revenuePotential < 500)
-let sortedFlowersByRevenue = filteredFlowers.sort((a, b) => a.revenuePotential - b.revenuePotential);
+const sortedFlowersByRevenue = filteredFlowers.sort((a, b) => a.revenuePotential - b.revenuePotential);
 
 console.log(sortedFlowersByRevenue);
