@@ -4,7 +4,7 @@ const vacations = [
     { location: "Canada", temperature: -10, rating: 4.4 }
 ];
 
-const vacationsAboveZero = vacations.filter(vacation => vacation.temperature < 0)
+const vacationsAboveZero = vacations.filter(vacation => vacation.temperature > 0)
 const vacationsWithTemperatureToRating  = vacationsAboveZero.map(vacation => ({
     location: vacation.location,
     temperatureToRatingRatio: Math.round(vacation.temperature * vacation.rating),

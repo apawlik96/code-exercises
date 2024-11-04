@@ -4,10 +4,12 @@ const trips = [
     { location: "Maui", days: 10, cost: 2500 }
 ];
 
-trips.forEach(trip => {
-    trip.costPerDay = trip.cost / trip.days;
-})
-const expensiveTrips = trips.filter(trip => trip.costPerDay > 150)
+const tripsWithCostPerDay = trips.map(trip => ({
+    ...trip,
+    costPerDay: trip.cost / trip.days
+}));
+
+const expensiveTrips = tripsWithCostPerDay.filter(trip => trip.costPerDay > 150)
 const sortedByLocation = expensiveTrips.sort((a, b) => {
     if (a.location < b.location) return -1;
     if (a.location > b.location) return 1;
