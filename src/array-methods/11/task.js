@@ -9,10 +9,8 @@ const vacationPackagesWithAverageCost = vacationPackages.map(vacationPackage => 
     averageDailyCost: Math.round(vacationPackage.cost / vacationPackage.days),
 }));
 const filteredVacationPackages = vacationPackagesWithAverageCost.filter(price => price.averageDailyCost < 200)
-const sortedDestinations = filteredVacationPackages.map(({destination}) => ({ destination })).sort((a, b) => {
-    if (a.destination < b.destination) return -1;
-    if (a.destination > b.destination) return 1;
-    return 0;
-});
+const sortedDestinations = filteredVacationPackages
+    .map(({ destination }) => destination)
+    .sort();
 
 console.log(sortedDestinations);
