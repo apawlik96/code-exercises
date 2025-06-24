@@ -1,11 +1,15 @@
+function findAddressByPersonId(addressTable, personId) {
+    return addressTable.filter(address => address.personId === personId)[0];
+}
+
 function combineTwoTables (personTable, addressTable) {
     const result = personTable.map((item) => {
-        const address = addressTable.filter(address => address.personId === item.personId)[0];
+        const address = findAddressByPersonId(addressTable, item.personId);
         return {
             firstName: item.firstName,
             lastName: item.lastName,
-            city: address ? address.city : null,
-            state: address ? address.state : null
+            city: address?.city,
+            state: address?.state
         }
     })
     return result;

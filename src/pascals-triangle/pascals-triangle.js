@@ -1,28 +1,28 @@
 function pascalsTriangle(numb) {
-    const triangle = [];
+    const triangleValues = [];
 
     for (let i = 0; i < numb; i++) {
-        if (i === 0) {
-            triangle.push([1]);
+        if (i > 1) {
+            const previousRowValues = triangleValues[i - 1];
+            triangleValues.push(generateCurrentRowFromPreviousRow(previousRowValues));
         } else if (i === 1) {
-            triangle.push([1, 1]);
+            triangleValues.push([1, 1]);
         } else {
-            const previousRow = triangle[i - 1];
-            triangle.push(getNextPascalRow(previousRow));
+            triangleValues.push([1]);
         }
     }
 
-    return triangle;
+    return triangleValues;
 }
 
-function getNextPascalRow(previousRow) {
-    const nextRow = [1];
-    for (let i = 1; i < previousRow.length; i++) {
-        const pairSum = previousRow[i - 1] + previousRow[i];
-        nextRow.push(pairSum);
+function generateCurrentRowFromPreviousRow(previousRowValues) {
+    const currentRow = [1];
+    for (let valueIndex = 1; valueIndex < previousRowValues.length; valueIndex++) {
+        const sumOfAdjacentValues = previousRowValues[valueIndex - 1] + previousRowValues[valueIndex];
+        currentRow.push(sumOfAdjacentValues);
     }
-    nextRow.push(1);
-    return nextRow;
+    currentRow.push(1);
+    return currentRow;
 }
 
 console.log(pascalsTriangle(6))
