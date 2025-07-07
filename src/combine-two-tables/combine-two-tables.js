@@ -1,5 +1,5 @@
 function findAddressByPersonId(addressTable, personId) {
-    return addressTable.filter(address => address.personId === personId)[0];
+    return addressTable.find(address => address.personId === personId);
 }
 
 function combineTwoTables (personTable, addressTable) {

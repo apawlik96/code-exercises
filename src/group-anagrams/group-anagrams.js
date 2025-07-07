@@ -1,11 +1,6 @@
 function groupAnagrams (strs) {
     const result = [];
-    const sortedWords = [];
-
-    for (let i=0; i<strs.length; i++) {
-        const sorted = strs[i].split('').sort().join('');
-        sortedWords.push(sorted);
-    }
+    const sortedWords = strs.map(str => str.split('').sort().join(''));
 
     const uniqueSortedKeys = [...new Set(sortedWords)];
 
@@ -26,4 +21,12 @@ function groupAnagrams (strs) {
 }
 
 console.log(groupAnagrams(["eat","tea","tan","ate","nat","bat"]))
+
+function uniqueStrings (strings) {
+    strings.sort();
+    const result = strings.filter((string, index) => string[index] !== string[index+1]);
+    return result;
+}
+
+console.log(uniqueStrings(['aet', 'aet', 'ant', 'aet', 'ant', 'abt']))
 

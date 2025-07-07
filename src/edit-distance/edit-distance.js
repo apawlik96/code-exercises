@@ -1,18 +1,14 @@
 function editDistance (word1, word2) {
     const maxLength = Math.max(word1.length, word2.length);
-    const comparisonResult = [];
+    let mismatchCount = 0;
 
     for (let i = 0; i < maxLength; i++) {
-        if (word1[i] === word2[i]) {
-            comparisonResult.push(word1[i]);
-        } else {
-            comparisonResult.push("-");
+        if (word1[i] !== word2[i]) {
+            mismatchCount++;
         }
     }
 
     const lengthDifference = word1.length - word2.length;
-
-    const mismatchCount = comparisonResult.filter(char => char === "-").length;
 
     const totalOperationsEstimate = mismatchCount + lengthDifference;
 

@@ -1,7 +1,13 @@
 function findFirstAndLastPositionOfElementInSortedArray (nums, target) {
-    const result = [];
-    if(nums.indexOf(target) && nums.lastIndexOf(target)) {
-        result.push(nums.indexOf(target), nums.lastIndexOf(target))
+    const idx = [];
+    for (let i=0; i<nums.length; i++) {
+        if (nums[i] === target) {
+            idx.push(i)
+        }
+    }
+    const result = []
+    if(idx.length !== 0 ){
+        result.push(idx[0], idx[idx.length-1])
     } else {
         result.push(-1, -1)
     }

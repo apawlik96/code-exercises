@@ -1,8 +1,5 @@
 function generateParentheses(n) {
-    const parentheses = [];
-    for (let i = 0; i < n; i++) {
-        parentheses.push("(", ")");
-    }
+    const parentheses = Array.from(new Array (2*n), (_, i) => i % 2 ? ")" : "(")
 
     const result = [];
 
@@ -36,7 +33,7 @@ function generateParentheses(n) {
                 return false;
             }
         }
-        return openCount === closeCount;
+        return true;
     });
 
     return new Set(filteredResult);

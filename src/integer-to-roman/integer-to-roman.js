@@ -13,11 +13,7 @@ function integerToRoman (num) {
 
     const concatArray = [...padding, ...array];
 
-    let result = "";
-
-    for (let i=0; i<concatArray.length; i++){
-        result += romanMap[i][concatArray[i]];
-    }
+    const result = concatArray.map((digit, index) => romanMap[index][digit]).join('');
 
     return result;
 }

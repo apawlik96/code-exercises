@@ -1,10 +1,6 @@
 function combinations(n, k) {
     const result = [];
-    const nums = [];
-
-    for (let i = 1; i <= n; i++) {
-        nums.push(i);
-    }
+    const newArray = Array.from(new Array(n), (_, index) => index + 1);
 
     const stack = [];
 
@@ -21,7 +17,7 @@ function combinations(n, k) {
         }
     }
 
-    createCombinations(nums, k);
+    createCombinations(newArray, k);
 
     return result;
 }
