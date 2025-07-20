@@ -1,6 +1,7 @@
 function rotateImage(matrix) {
+    if (!matrix) return "";
     const n = matrix.length;
-    if( n === 1 ) return [[1]];
+    if( n === 1 || n === 0 ) return matrix;
     const result = [];
 
     for (let col = 0; col < n; col++) {
@@ -14,6 +15,8 @@ function rotateImage(matrix) {
     return result;
 }
 
+console.log(rotateImage())
+console.log(rotateImage([]))
 console.log(rotateImage([[1]]))
 console.log(rotateImage([[1,2,3],[4,5,6],[7,8,9]]))
 console.log(rotateImage([[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]))

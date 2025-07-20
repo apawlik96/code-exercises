@@ -1,43 +1,36 @@
 function validSudoku(board) {
-    const boardWithoutDots = [];
+    const hasDuplicates = (array) => {
+        return array.length !== new Set(array).size;
+    };
 
-    for (let i = 0; i < board.length; i++) {
-        const filteredRow = board[i].filter(val => val !== ".");
-        boardWithoutDots.push(filteredRow);
+    for (let row = 0; row < 9; row++) {
+        const filteredRow = board[row].filter(val => val !== ".");
+        if (hasDuplicates(filteredRow)) return false;
     }
 
-    for (let j = 0; j < board[0].length; j++) {
-        const arrayColumn = [];
-        for (let i = 0; i < board.length; i++) {
-            if (board[i][j] !== ".") {
-                arrayColumn.push(board[i][j]);
-            }
+    for (let col = 0; col < 9; col++) {
+        const column = [];
+        for (let row = 0; row < 9; row++) {
+            const value = board[row][col];
+            if (value !== ".") column.push(value);
         }
-        boardWithoutDots.push(arrayColumn);
+        if (hasDuplicates(column)) return false;
     }
 
-    for (let k = 0; k < 9; k++) {
-        const arraySquare = [];
+    for (let box = 0; box < 9; box++) {
+        const square = [];
 
-        const startRow = Math.floor(k / 3) * 3;
-        const startCol = (k % 3) * 3;
+        const startRow = Math.floor(box / 3) * 3;
+        const startCol = (box % 3) * 3;
 
         for (let i = 0; i < 9; i++) {
             const row = startRow + Math.floor(i / 3);
             const col = startCol + (i % 3);
             const value = board[row][col];
-            if (value !== ".") {
-                arraySquare.push(value);
-            }
+            if (value !== ".") square.push(value);
         }
 
-        boardWithoutDots.push(arraySquare);
-    }
-
-    for (let i = 0; i < boardWithoutDots.length; i++) {
-        if (boardWithoutDots[i].length !== new Set(boardWithoutDots[i]).size) {
-            return false;
-        }
+        if (hasDuplicates(square)) return false;
     }
 
     return true;

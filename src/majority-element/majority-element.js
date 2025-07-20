@@ -2,11 +2,7 @@ function majorityElement (nums) {
     const counts = {};
 
     nums.forEach(num => {
-        if (counts[num]) {
-            counts[num] += 1;
-        } else {
-            counts[num] = 1;
-        }
+        counts[num] = counts[num] ? counts[num] + 1 : 1
     });
 
     const maxValue = Math.max(...Object.values(counts));
